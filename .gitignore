@@ -1,0 +1,35 @@
+# .gitignore for a ROS project
+
+# Ignore build and devel folders
+/build
+/devel
+
+# Ignore all text files
+*.txt
+
+# Ignore all Python compiled files
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore all C++ object files
+*.o
+
+# Ignore all C++ compiled files
+*.so
+*.dylib
+*.dll
+
+# Ignore all C++ executables
+*.exe
+
+# Ignore all log, database and map files
+*.db
+*.log
+*.pgm
+*.yaml
+
+# Ignore package lock files
+/package-lock.json
+/yarn.lock
+
