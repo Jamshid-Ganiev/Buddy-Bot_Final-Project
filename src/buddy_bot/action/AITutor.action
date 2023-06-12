@@ -1,0 +1,7 @@
+# The request data (in this case, it's the transcribed text)
+string question
+---
+# The response data (in this case, the answer to the question)
+string answer
+---
+# The feedback (in this case, it could be empty)
