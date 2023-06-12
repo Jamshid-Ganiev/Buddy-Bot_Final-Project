@@ -52,5 +52,17 @@ In the Publisher-Subscriber paradigm, talkToMe.py acts as the publisher, broadca
 
 In the Service paradigm, speech_to_text_service.py and speech_to_text_client.py work together to transcribe your voice commands. When a request is made to the speech_to_text service (defined in speech_to_text_client.py), the speech_to_text_service.py script processes the request and returns the transcribed text.
 
+## Whisper ASR API
+
+The Buddy_Bot makes use of the Whisper ASR API, a powerful Automatic Speech Recognition system developed by OpenAI. This API has the ability to convert spoken language into written text, making it perfect for a project such as ours where we seek to interpret voice commands. 
+
+To make use of Whisper ASR, you'll need to acquire an API key. Store this key safely and do not disclose it publicly. The `speech_to_text_service.py` script uses this API key to authenticate with Whisper ASR API and access the transcription service. 
+
+Please note: As of the time of writing, the Whisper API is in beta and usage costs may apply. Make sure to check the latest documentation and OpenAI's pricing page to understand the potential costs involved.
+
+### Turtlesim example photo:
+![image](https://github.com/Jamshid-Ganiev/Buddy-Bot_Final-Project/assets/84252587/abea7d33-8c0d-4999-be18-081b346e5f3b)
+
+
 MIT © Jamshid Ganiev
 
