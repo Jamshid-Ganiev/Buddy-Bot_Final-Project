@@ -62,6 +62,10 @@ Please note: As of the time of writing, the Whisper API is in beta and usage cos
 
 ### Turtlesim example photo:
 ![image](https://github.com/Jamshid-Ganiev/Buddy-Bot_Final-Project/assets/84252587/abea7d33-8c0d-4999-be18-081b346e5f3b)
+![image](https://github.com/Jamshid-Ganiev/Buddy-Bot_Final-Project/assets/84252587/a1ddfc92-ad4c-42b6-91b1-0239af3f8baf)
+![image](https://github.com/Jamshid-Ganiev/Buddy-Bot_Final-Project/assets/84252587/40c0373b-0e7c-4c51-811c-f46ecbfe06be)
+![image](https://github.com/Jamshid-Ganiev/Buddy-Bot_Final-Project/assets/84252587/8b47e7ca-b251-4823-9765-3ff3bf4b55e2)
+![image](https://github.com/Jamshid-Ganiev/Buddy-Bot_Final-Project/assets/84252587/b81c9e2e-9cfe-4691-961f-aa125c0d713e)
 
 
 MIT © Jamshid Ganiev
