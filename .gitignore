@@ -5,7 +5,6 @@
 /devel
 
 # Ignore all text files
-*.txt
 
 # Ignore all Python compiled files
 *.pyc
