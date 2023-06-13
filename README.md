@@ -1,5 +1,4 @@
 # Buddy-Bot_Final-Project
-Human Companion Robot with Voice Control and Speech Evalution 
 # Buddy_Bot: Your Personal Speech-to-Command Assistant
 
 
