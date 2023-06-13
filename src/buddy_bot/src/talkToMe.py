@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 
 import rospy
-from std_msgs.msg import String
 from geometry_msgs.msg import Twist
-from std_srvs.srv import Empty
 import speech_recognition as sr
 import sys
 import math
@@ -14,7 +12,7 @@ def draw_shape(shape, pub):
     angle = 0
 
     # Speed for drawing shapes
-    shape_speed = 4.0
+    shape_speed = 0.2
 
     if shape == "rectangle":
         sides = 4
@@ -31,9 +29,6 @@ def draw_shape(shape, pub):
     elif shape == "octagon":
         sides = 8
         angle = 45
-    elif shape == "heart":
-        sides = 20
-        angle = 36
 
     # Draw the shape
     for _ in range(sides):
@@ -57,8 +52,8 @@ def turn(pub, angle, duration):
     pub.publish(twist)
 
 def parse_transcription(transcription):
-    command_types = ['forward', 'backward', 'left', 'right', 'finish', 'clean',
-                     'rectangle', 'triangle', 'pentagon', 'star', 'octagon', 'heart']
+    command_types = ['forward', 'backward', 'left', 'right', 'finish', 
+                     'rectangle', 'triangle', 'pentagon', 'star', 'octagon']
 
     transcription_list = transcription.split()
     for word in transcription_list:
@@ -70,10 +65,6 @@ def parse_transcription(transcription):
 def handle_audio():
     recognizer = sr.Recognizer()
     microphone = sr.Microphone()
-
-    rospy.wait_for_service('/reset')  
-    reset_turtle = rospy.ServiceProxy('/reset', Empty)  
-    reset_turtle()  
 
     while True:
         movement_started = False
@@ -91,13 +82,13 @@ def handle_audio():
                         velocity = Twist()
                         if command_text in ['forward', 'backward', 'left', 'right']:
                             if command_text == "forward":
-                                velocity.linear.x = 2.0
+                                velocity.linear.x = 0.2
                             elif command_text == "backward":
-                                velocity.linear.x = -2.0
+                                velocity.linear.x = -0.2
                             elif command_text == "left":
-                                velocity.angular.z = 1.0
+                                velocity.angular.z = 0.5
                             elif command_text == "right":
-                                velocity.angular.z = -1.0
+                                velocity.angular.z = -0.5
 
                             if not movement_started:
                                 rospy.loginfo("Movement started.")
@@ -106,14 +97,8 @@ def handle_audio():
                             command_publisher.publish(velocity)
                             rospy.sleep(3)
 
-                        elif command_text in ['rectangle', 'triangle', 'pentagon', 'star', 'octagon', 'heart']:
+                        elif command_text in ['rectangle', 'triangle', 'pentagon', 'star', 'octagon']:
                             draw_shape(command_text, command_publisher)
-
-                        elif command_text == "clean":
-                            rospy.loginfo("Cleaning...")
-                            rospy.wait_for_service('/clear')
-                            clear = rospy.ServiceProxy('/clear', Empty)
-                            clear()
 
                         elif command_text == "finish":
                             rospy.loginfo("Finishing...")
@@ -124,7 +109,7 @@ def handle_audio():
 
 if __name__ == '__main__':
     rospy.init_node('voice_control')
-    command_publisher = rospy.Publisher('/turtle1/cmd_vel', Twist, queue_size=10)
+    command_publisher = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
     handle_audio()
     time.sleep(2)
     rospy.spin()
