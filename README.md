@@ -1,4 +1,3 @@
-# Buddy-Bot_Final-Project
 # Buddy_Bot: Your Personal Speech-to-Command Assistant
 
 
